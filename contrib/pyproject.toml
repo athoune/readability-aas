@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-httpx = "^0.24.0"
+httpx = {extras = ["http2"], version = "^0.24.0"}
 jsonrpcclient = "^4.0.3"
 nh3 = "^0.2.11"
 
