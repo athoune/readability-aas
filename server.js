@@ -1,3 +1,4 @@
+const process = require('process');
 const express = require("express");
 const { Readability } = require('@mozilla/readability');
 const { JSDOM } = require('jsdom');
@@ -39,4 +40,8 @@ app.post("/json-rpc", (req, res) => {
   });
 });
 
-app.listen(8000);
+let port = parseInt(process.env.PORT || "8000", 10);
+let host = process.env.HOST || "127.0.0.1"
+
+console.log(`Listening http://${host}:${port}`);
+app.listen(port, host);
