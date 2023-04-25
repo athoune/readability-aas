@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "readability-client"
+version = "0.1.0"
+description = "Consume readabiliy-aas"
+authors = ["Mathieu Lecarme <mathieu@garambrogne.net>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+httpx = "^0.24.0"
+jsonrpcclient = "^4.0.3"
+nh3 = "^0.2.11"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
