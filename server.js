@@ -14,6 +14,7 @@ const server = new JSONRPCServer();
 server.addMethod("echo", ({ text }) => text);
 server.addMethod("log", ({ message }) => console.log(message));
 server.addMethod("readability", ({ body }) => {
+    console.log("readability");
     let doc = new JSDOM(body, { });
     let reader = new Readability(doc.window.document);
     let r = reader.parse();
@@ -22,10 +23,14 @@ server.addMethod("readability", ({ body }) => {
 } );
 
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000}));
+
+//app.use(bodyParser.json());
 
 app.post("/json-rpc", (req, res) => {
   const jsonRPCRequest = req.body;
+  console.log(jsonRPCRequest);
   // server.receive takes a JSON-RPC request and returns a promise of a JSON-RPC response.
   // It can also receive an array of requests, in which case it may return an array of responses.
   // Alternatively, you can use server.receiveJSON, which takes JSON string as is (in this case req.body).

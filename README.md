@@ -8,3 +8,9 @@ Expose Mozilla's [readability](https://github.com/mozilla/readability) as a json
 npm install
 node server.js
 ```
+
+## Start on prod
+
+```bash
+./node_modules/.bin/pm2 start server.js
+```
