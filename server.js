@@ -16,7 +16,9 @@ server.addMethod("log", ({ message }) => console.log(message));
 server.addMethod("readability", ({ body }) => {
     console.log("readability");
     let doc = new JSDOM(body, { });
-    let reader = new Readability(doc.window.document);
+    let reader = new Readability(doc.window.document, {
+      debug: true,
+    });
     let r = reader.parse();
     console.log('readability:', r.title);
     return r;
