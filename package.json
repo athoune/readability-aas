@@ -4,7 +4,9 @@
   "description": "Expose Mozilla's readability as json-rpc server",
   "main": "index.js",
   "scripts": {
-    "serve": "node server.js",
+    "start": "pm2 start",
+    "stop": "pm2 stop readability",
+    "restart": "pm2 restart readability",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mathieu Lecarme",
