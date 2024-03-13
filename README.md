@@ -5,12 +5,11 @@ Expose Mozilla's [readability](https://github.com/mozilla/readability) as a json
 ## Install
 
 ```bash
-npm install
-node server.js
+pnpm install
 ```
 
 ## Start on prod
 
 ```bash
-./node_modules/.bin/pm2 start server.js
+pnpm start
 ```
